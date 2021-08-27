@@ -32,11 +32,13 @@ func BcjClient(inData []string) ([]bool,error){
 	jsonStr,err := json.Marshal(inMap)
 	if err != nil {
 		fmt.Println("BcjClient.BcjClient() json.Marshal falied!")
+		panic(err.Error())
 	}
 	url := "https://localhost:8077"
 	req,err := http.NewRequest("POST",url,bytes.NewBuffer(jsonStr)) 
 	if err != nil {
 		fmt.Println("BcjClient.BcjClient() http.NewRequest falied!")
+		panic(err.Error())
 	}
 	req.Header.Add("Content-Type","application/json")
 	defer req.Body.Close()
@@ -52,12 +54,14 @@ func BcjClient(inData []string) ([]bool,error){
 	
 	if err != nil {
 		fmt.Println("request fail")
+		panic(err.Error())
 	}
 	defer resp.Body.Close()
 
 	res,err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		fmt.Println("BcjClient.BcjClient() ioutil.ReadAll falied!")
+		panic(err.Error())
 	}
 	var data map[string]interface{}
 	json.Unmarshal(res,&data)

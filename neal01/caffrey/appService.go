@@ -14,10 +14,12 @@ func hander(w http.ResponseWriter,r *http.Request) {
 	res,err := ioutil.ReadAll(r.Body)
 	if err != nil {
 		fmt.Println("appService.hander() ioutil.ReadAll failed!")
+		return
 	}
 	err = json.Unmarshal(res,&data)
 	if err != nil {
 		fmt.Println("appService.hander() json.Unmarshal failed!")
+		return
 	}
 	//将序列化后的map转换为切片类型
 	inSlice := MapToSlice(data)
@@ -39,6 +41,7 @@ func hander(w http.ResponseWriter,r *http.Request) {
 	jsonData,err := json.Marshal(post)
 	if err != nil {
 		fmt.Println("appService.hander() json.Marshal failed!")
+		return
 	}
 	w.Write(jsonData)
 }

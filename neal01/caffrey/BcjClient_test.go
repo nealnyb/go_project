@@ -10,6 +10,7 @@ func startService() {
 	err := AppMain()
 	if err != nil {
 		fmt.Println("start service fail!")
+		return
 	}
 }
 func TestBcjClient(t *testing.T) {
