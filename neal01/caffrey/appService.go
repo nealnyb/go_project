@@ -7,6 +7,7 @@ import (
 )
 
 var safeData *SafeData = &SafeData{}
+var flagCheck chan bool =  make(chan bool,1)
 
 func hander(w http.ResponseWriter,r *http.Request) {
 	//接收客户端请求json数据并反序列化
@@ -24,7 +25,10 @@ func hander(w http.ResponseWriter,r *http.Request) {
 	//将序列化后的map转换为切片类型
 	inSlice := MapToSlice(data)
 	//将输入的切片和存储的数据进行对比，存在返回true,不存在返回false,返回一个[]bool
-	srcSlice := safeData.Get()
+	var srcSlice []string
+	if <-flagCheck {
+		srcSlice = safeData.Get()	
+	}
 	checkSlice := make([]bool,0,len(inSlice))
 	for _,inVal := range inSlice {
 		check := CheckExist(inVal,srcSlice)
@@ -32,6 +36,7 @@ func hander(w http.ResponseWriter,r *http.Request) {
 	}
 	//将输入的切片数据增加到存储数据中
 	safeData.Add(inSlice)
+	flagCheck<-true
 	// checkSlice := InterviewServer(inSlice,safeData)
 	//向客户端返回一个json的数据
 	w.Header().Set("Content-Type","application/json")
@@ -47,6 +52,7 @@ func hander(w http.ResponseWriter,r *http.Request) {
 }
 
 func AppMain() error {
+	flagCheck<-true
 	http.HandleFunc("/",hander)
 	// http.ListenAndServe("localhost:8077",nil)
 	err := http.ListenAndServeTLS("localhost:8077","cert.pem","key.pem",nil)
