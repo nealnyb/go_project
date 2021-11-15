@@ -1,0 +1,16 @@
+{
+    "app_name": "legend",
+    "app_mode": "debug",
+    "app_host": "localhost",
+    "app_port": "8090",
+    "database":{
+        "driver":"mysql",
+        "user":"neal",
+        "password":"jason1213",
+        "host":"39.105.131.179",
+        "port":"33066",
+        "db_name":"legend",
+        "charset":"utf8",
+        "show_sql":true
+    }
+}
