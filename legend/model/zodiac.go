@@ -6,4 +6,5 @@ type Zodiac struct {
 	Addr string `xorm:"varchar(30)" json:"addr"`
 	RefreshTime int64 `xorm:"bigint" json:"refresh_time"`
 	Path string `xorm:"varchar(50)" json:"path"`
+	Refresh int64 `xorm:"bigint" json:"refresh"`
 }

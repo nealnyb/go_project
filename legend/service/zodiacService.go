@@ -9,13 +9,18 @@ import (
 type ZodiacService struct {
 }
 
+
+
+func (zs *ZodiacService) ZodiacQuery() ([]model.Zodiac,error) {
+	//操作数据库
+	zodiacDao := dao.NewZoaZodiacDao()
+	return zodiacDao.QueryZodiac()
+}
+
 func (zs *ZodiacService) ZodiacAdd() bool {
 	//将生肖信息保存到数据库
 	zodiacInfo := model.Zodiac{
-		Name: "牛",
-		Addr: "生肖殿堂",
-		RefreshTime: 7200,
-		Path: "下5左2右1",	
+		Refresh: 5000,	
 	}
 	zodiacDao := dao.ZodiacDao{Orm:tool.DbEngine}
 	res := zodiacDao.InsertZodiac(zodiacInfo)

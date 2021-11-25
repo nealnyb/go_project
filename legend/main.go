@@ -33,4 +33,6 @@ func main() {
 func registerRouter(router *gin.Engine){
 	new(controller.HelloController).Router(router)
 	new(controller.ZodiacController).Router(router)
+	new(controller.HomeController).Router(router)
+	new(controller.HongHuangController).Router(router)
 }
