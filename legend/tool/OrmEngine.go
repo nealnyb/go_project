@@ -25,6 +25,10 @@ func OrmEngine(cfg *Config) (*Orm,error){
 	new(model.Zodiac),
 	new(model.Home),
 	new(model.HongHuang),
+	new(model.ShengYu),
+	new(model.ShenLong),
+	new(model.ZhenYing),
+	new(model.Humanoid),
 )
 	if err != nil {
 		return nil,err

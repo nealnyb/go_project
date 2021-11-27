@@ -35,4 +35,8 @@ func registerRouter(router *gin.Engine){
 	new(controller.ZodiacController).Router(router)
 	new(controller.HomeController).Router(router)
 	new(controller.HongHuangController).Router(router)
+	new(controller.ShengYuController).Router(router)
+	new(controller.ShenLongController).Router(router)
+	new(controller.ZhenYingController).Rotuer(router)
+	new(controller.HumanoidController).Router(router)
 }
