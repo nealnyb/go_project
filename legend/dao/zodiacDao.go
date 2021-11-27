@@ -24,6 +24,9 @@ func (zd *ZodiacDao) QueryZodiac() ([]model.Zodiac,error) {
 	return zodiacs,nil
 }
 
+func (zd *ZodiacDao) ZodiacRefreshUpdateDao(data *model.Zodiac) (int64,error){
+	return zd.Engine.Id(data.Id).Update(data)
+}
 
 
 func (zd *ZodiacDao) InsertZodiac(zodiac model.Zodiac) int64 {

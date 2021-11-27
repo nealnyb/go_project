@@ -20,3 +20,7 @@ func (sld *ShenLongDao) ShenLongQueryDao() ([]model.ShenLong,error){
 	}
 	return shenLongs,nil
 }
+
+func (sld *ShenLongDao) ShenLongRefreshUpdateDao(data *model.ShenLong) (int64,error) {
+	return sld.Engine.Id(data.Id).Update(data)
+}

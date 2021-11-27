@@ -20,3 +20,7 @@ func (syd *ShengYuDao) ShengYuQueryDao() ([]model.ShengYu,error){
 	}
 	return shengYus,nil
 }
+
+func (syd *ShengYuDao) ShengYuRefreshUpdateDao(data *model.ShengYu) (int64,error){
+	return syd.Engine.Id(data.Id).Update(data)
+}

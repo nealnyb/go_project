@@ -20,3 +20,7 @@ func NewHongHuangDao() *HongHuangDao {
 	}
 	return honghuangs,nil
  }
+
+ func (hhd *HongHuangDao) HongHuangRefreshUpdateDao(data *model.HongHuang) (int64,error) {
+	 return hhd.Engine.Id(data.Id).Update(data)
+ }

@@ -20,3 +20,7 @@ func (hd *HomeDao) HomeQueryDao() ([]model.Home,error) {
 	}
 	return homes,nil
 }
+
+func (hd *HomeDao) HomeRefeshUpdateDao(data *model.Home) (int64,error) {
+	return hd.Engine.Id(data.Id).Update(data)
+}

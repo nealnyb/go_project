@@ -26,3 +26,9 @@ func (zs *ZodiacService) ZodiacAdd() bool {
 	res := zodiacDao.InsertZodiac(zodiacInfo)
 	return res > 0
 }
+
+func (zs *ZodiacService) ZodiacRefreshUpdateService(data *model.Zodiac) (int64,error){
+	//操作数据库
+	zodiacDao := dao.NewZoaZodiacDao()
+	return zodiacDao.ZodiacRefreshUpdateDao(data)
+}

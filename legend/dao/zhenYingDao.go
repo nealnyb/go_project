@@ -20,3 +20,7 @@ func (zyd *ZhenYingDao) ZhenYingQueryDao() ([]model.ZhenYing,error) {
 	}
 	return zhenYings,nil
 }
+
+func (zyd *ZhenYingDao) ZhenYingRefreshUpdateDao(data *model.ZhenYing) (int64,error) {
+	return zyd.Engine.Id(data.Id).Update(data)
+}

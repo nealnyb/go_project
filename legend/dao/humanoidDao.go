@@ -20,3 +20,7 @@ func (hud *HumanoidDao) HumanoidQueryDao() ([]model.Humanoid,error) {
 	}
 	return humanoids,nil
 }
+
+func (hud *HumanoidDao) HumanoidRefreshUpdateDao(data *model.Humanoid) (int64,error){
+	return hud.Engine.Id(data.Id).Update(data)
+}
