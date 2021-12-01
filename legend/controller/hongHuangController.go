@@ -12,8 +12,8 @@ type HongHuangController struct {
 }
 
 func (hhc *HongHuangController) Router(engine *gin.Engine) {
-	engine.GET("/api/honghuang/query",hhc.HongHuangQuery)
-	engine.PUT("/api/honghuang/refresh/update",hhc.HongHuangRefreshUpdate)
+	engine.GET("/honghuang/query",hhc.HongHuangQuery)
+	engine.POST("/honghuang/refresh/update",hhc.HongHuangRefreshUpdate)
 }
 
 func (hhc *HongHuangController) HongHuangQuery(ctx *gin.Context){

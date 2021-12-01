@@ -4,7 +4,6 @@ import (
 	"legend/model"
 	"legend/service"
 	"legend/tool"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -12,8 +11,8 @@ type HomeController struct {
 }
 
 func (hc *HomeController) Router(engine *gin.Engine) {
-	engine.GET("/api/home/query",hc.HomeQuery)
-	engine.PUT("/api/home/refresh/update",hc.HomeRefeshUpdate)	
+	engine.GET("/home/query",hc.HomeQuery)
+	engine.POST("/home/refresh/update",hc.HomeRefeshUpdate)	
 }
 
 func (hc *HomeController) HomeQuery(ctx *gin.Context){

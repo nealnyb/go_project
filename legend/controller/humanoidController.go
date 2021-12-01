@@ -12,8 +12,8 @@ type HumanoidController struct {
 }
 
 func (huc *HumanoidController) Router(engine *gin.Engine) {
-	engine.GET("/api/humanoid/query",huc.HumanoidQuery)
-	engine.PUT("/api/humanoid/refresh/update",huc.HumanoidRefreshUpdate)
+	engine.GET("/humanoid/query",huc.HumanoidQuery)
+	engine.POST("/humanoid/refresh/update",huc.HumanoidRefreshUpdate)
 }
 
 func (huc *HumanoidController) HumanoidQuery(ctx *gin.Context){

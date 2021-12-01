@@ -12,9 +12,9 @@ type ZodiacController struct {
 }
 
 func (zc *ZodiacController) Router(engine *gin.Engine) {
-	engine.GET("/api/zodiac/add",zc.ZodiacAdd)
-	engine.GET("/api/zodiac/query",zc.ZodiacQuery)
-	engine.PUT("/api/zodiac/refresh/update",zc.ZodiacRefreshUpdate)
+	engine.GET("/zodiac/add",zc.ZodiacAdd)
+	engine.GET("/zodiac/query",zc.ZodiacQuery)
+	engine.POST("/zodiac/refresh/update",zc.ZodiacRefreshUpdate)
 }
 
 

@@ -12,8 +12,8 @@ type ZhenYingController struct {
 }
 
 func (zyc *ZhenYingController) Rotuer(engine *gin.Engine){
-	engine.GET("/api/zhenying/query",zyc.ZhenYingQuery)
-	engine.PUT("/api/zhenying/refresh/update",zyc.ZhenYingRefreshUpdate)
+	engine.GET("/zhenying/query",zyc.ZhenYingQuery)
+	engine.POST("/zhenying/refresh/update",zyc.ZhenYingRefreshUpdate)
 }
 
 func (zyc *ZhenYingController) ZhenYingQuery(ctx *gin.Context) {

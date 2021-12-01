@@ -2,8 +2,10 @@ package main
 
 import (
 	"legend/controller"
+	"legend/middleWare"
 	"legend/tool"
 	"log"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -25,6 +27,9 @@ func main() {
 
 	registerRouter(app)
 
+	//设置全局跨域访问
+	app.Use(middleWare.Cors())
+
 	app.Run(cfg.AppHost + ":" + cfg.AppPort)
 
 }
@@ -40,3 +45,4 @@ func registerRouter(router *gin.Engine){
 	new(controller.ZhenYingController).Rotuer(router)
 	new(controller.HumanoidController).Router(router)
 }
+

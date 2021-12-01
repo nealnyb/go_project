@@ -20,7 +20,7 @@ func (zs *ZodiacService) ZodiacQuery() ([]model.Zodiac,error) {
 func (zs *ZodiacService) ZodiacAdd() bool {
 	//将生肖信息保存到数据库
 	zodiacInfo := model.Zodiac{
-		Refresh: 5000,	
+		Refresh: "",	
 	}
 	zodiacDao := dao.ZodiacDao{Orm:tool.DbEngine}
 	res := zodiacDao.InsertZodiac(zodiacInfo)

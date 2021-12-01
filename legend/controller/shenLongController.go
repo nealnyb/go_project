@@ -12,8 +12,8 @@ type ShenLongController struct {
 }
 
 func (slc *ShenLongController) Router(engine *gin.Engine){
-	engine.GET("/api/shenlong/query",slc.ShenLongQuery)
-	engine.PUT("/api/shenlong/refresh/update",slc.ShenLongRefreshUpdate)
+	engine.GET("/shenlong/query",slc.ShenLongQuery)
+	engine.POST("/shenlong/refresh/update",slc.ShenLongRefreshUpdate)
 }
 
 func (slc *ShenLongController) ShenLongQuery(ctx *gin.Context) {

@@ -12,8 +12,8 @@ type ShengYuController struct {
 }
 
 func (syc *ShengYuController) Router(engine *gin.Engine) {
-	engine.GET("/api/shengyu/query",syc.ShengYuQuery)
-	engine.PUT("/api/shengyu/refresh/update",syc.ShengYuRefreshUpdate)
+	engine.GET("/shengyu/query",syc.ShengYuQuery)
+	engine.POST("/shengyu/refresh/update",syc.ShengYuRefreshUpdate)
 }
 
 func (syc *ShengYuController) ShengYuQuery(ctx *gin.Context) {
